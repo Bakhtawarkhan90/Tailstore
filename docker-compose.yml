@@ -1,0 +1,37 @@
+services:
+
+  database:
+    image: mysql:8.0
+    container_name: database
+    environment:
+      MYSQL_ROOT_PASSWORD: kali
+      MYSQL_DATABASE: tailstore
+    ports:
+      - "3306:3306"
+    volumes:
+      - tailstore_mysql_data:/var/lib/mysql
+    networks:
+      - tailstore
+
+  flask_app:
+    build: .
+    container_name: tailstore
+    image: bakhtawar375/tailstore:latest
+    environment:
+      MYSQL_HOST: database
+      MYSQL_USER: root
+      MYSQL_PASSWORD: kali
+      MYSQL_DATABASE: tailstore
+    ports:
+      - "5000:5000"
+    networks:
+      - tailstore
+    depends_on:
+      - database
+    restart: unless-stopped
+
+volumes:
+  tailstore_mysql_data:
+
+networks:
+  tailstore:

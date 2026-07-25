@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment - TailStore</title>
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <style>
+        .payment-container {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .payment-option:hover {
+            border-color: #000;
+        }
+
+        .payment-option input {
+            margin-right: 15px;
+        }
+
+        .pay-button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 30px;
+            background: #000;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .pay-button:hover {
+            background: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="payment-container">
+
+        <h1 class="text-2xl font-semibold mb-6">
+            Select Payment Method
+        </h1>
+
+        <p class="mb-6">
+            Choose your preferred payment method to complete your order.
+        </p>
+
+        <label class="payment-option">
+            <input type="radio" name="payment" value="card" checked>
+            <span>💳 Credit / Debit Card</span>
+        </label>
+
+        <label class="payment-option">
+            <input type="radio" name="payment" value="paypal">
+            <span>🅿️ PayPal</span>
+        </label>
+
+        <label class="payment-option">
+            <input type="radio" name="payment" value="upi">
+            <span>📱 UPI</span>
+        </label>
+
+        <label class="payment-option">
+            <input type="radio" name="payment" value="cod">
+            <span>💵 Cash on Delivery</span>
+        </label>
+
+        <button class="pay-button" onclick="processPayment()">
+            Pay $69.00
+        </button>
+
+    </div>
+
+    <script>
+        function processPayment() {
+
+            const selectedPayment =
+                document.querySelector('input[name="payment"]:checked').value;
+
+            alert(
+                "Payment method selected: " +
+                selectedPayment.toUpperCase() +
+                "\n\nThis is a demo payment page."
+            );
+        }
+    </script>
+
+</body>
+</html>
