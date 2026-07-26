@@ -210,6 +210,8 @@ Access the application:
 ```text
 http://localhost:5000
 ```
+## Home Page
+![Home Page](./home-page.png)
 
 ---
 
